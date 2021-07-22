@@ -1,13 +1,11 @@
 import React from 'react';
+import { AppContainer } from './styles';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-       
-        Hola mundo
-      </header>
-    </div>
+    <AppContainer>
+      Columns will go here
+    </AppContainer>
   );
 }
 
