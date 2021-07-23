@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { NewItemFormContainer, NewItemButton, NewItemInput } from './styles'
 
 interface NewItemFormProps {
