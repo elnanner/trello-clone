@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { createContext } from 'react';
+import { createContext, useReducer, useContext } from 'react';
 
 interface Task {
     id: string;
@@ -42,10 +41,15 @@ interface AppStateContextProps {
 
 const AppStateContext = createContext<AppStateContextProps>({} as AppStateContextProps);
 
-export const AppStateProvider = ({ children }: React.PropsWithChildren<{}>)=>{
+export const AppStateProvider = ({ children }: React.PropsWithChildren<{}>) => {
     return (
-        <AppStateContext.Provider value = {{state: appData}}>
+        <AppStateContext.Provider value={{ state: appData }}>
             {children}
         </AppStateContext.Provider>
     )
+}
+
+// implement custom hook
+export const useAppState = () => {
+    return useContext(AppStateContext);
 }
