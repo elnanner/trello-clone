@@ -5,22 +5,17 @@ import { useAppState } from './AppStateContext'
 
 const App = () => {
 
-  const { state } = useAppState();
+  const { state, dispatch } = useAppState();
   return (
     <AppContainer>
       {state.lists.map((list, i) => (
-        <Column text={list.text} key={list.id} index={i}/>
+        <Column id={list.id} text={list.text} key={list.id} index={i} />
       ))}
 
-      {/* <Column text="In Progress">
-        <Card text="Learn Typescript"></Card>
-      </Column>
-
-      <Column text="Done">
-        <Card text="Begin to use static typing"></Card>
-      </Column> */}
-
-      <AddNewItem toggleButtonText="+ Add another list" onAdd={(text) => console.log(text)} />
+      <AddNewItem
+        toggleButtonText="+ Add another list"
+        onAdd={text => dispatch({ type: "ADD_LIST", payload: text })}
+      />
     </AppContainer>
   );
 }
