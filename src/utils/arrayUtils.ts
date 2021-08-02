@@ -18,3 +18,19 @@ export function overrideItemAtIndex<T>(
         return newItem
     })
 }
+
+export function removeItemAtIndex<T>(array: T[], index: number) {
+    return [...array.slice(0, index), ...array.slice(index + 1)]
+}
+
+export function insertItemAtIndex(array: T[], item: T, to: number) {
+    return array.splice(item,0);
+}
+
+export const moveItem = <T>(array: T[], from: number, to: number) => {
+    const item = array[from]
+    return insertItemAtIndex(removeItemAtIndex(array, from), item, to)
+}
+
+
+
